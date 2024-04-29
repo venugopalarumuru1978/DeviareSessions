@@ -1,0 +1,9 @@
+package com.jdbc_pack;
+import java.sql.*;
+public class DbConnEx {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

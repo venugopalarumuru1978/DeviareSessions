@@ -1,0 +1,25 @@
+package com.preparedstmt;
+import java.sql.*;
+import java.util.Scanner;
+public class DeleteStudent {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Roll Number ");
+		int rno = sc.nextInt();
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conObj = DriverManager.getConnection("jdbc:mysql://localhost:3306/deviaredb2","root", "root");
+			
+			PreparedStatement ps = conObj.prepareStatement("delete from student where rollno=?");
+			ps.setInt(1, rno);
+			ps.executeUpdate();
+			
+			System.out.println("Student is deleted....");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
