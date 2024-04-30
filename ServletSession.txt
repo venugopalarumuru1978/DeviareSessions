@@ -1,0 +1,168 @@
+Today's Agenda
+----------------
+1. Web Programming
+2. Creating Web Application using Eclipse
+3. Configuring Tomcat Web Server with Eclipse
+4. Executing Web Pages using Web Server
+5. Servlets
+-----------------
+Web Programming:-
+
+the programming which allows to develop web applications.  It won't comes with single programming language, 
+
+A Website is a collection of web pages. 
+A Webpage is a page which exist web information related to particular entity. 
+
+Web Information can be divided into different types
+A. Textual Information
+B. Images
+C. Audio and Video
+
+To Develop Web Applications
+	Basically Web Programming is divided into two types
+		1. Client Side Web Programming
+		2. Server Side Web Programming
+
+Based Programming Language, to build a web application
+
+As per Java
+	1.  HTML, CSS
+	2.  JavaScript
+	3.  Serverside technologies (Servlets, JSP, ....)
+
+As per DotNet
+	1.  HTML, CSS
+	2.  JavaScript
+	3.  Serverside technologies (ASP.Net, ASP.Net MVC)
+
+As per Php
+	1.  HTML, CSS
+	2.  JavaScript
+	3.  Serverside technologies (Php)
+
+As per Python
+	1.  HTML, CSS
+	2.  JavaScript
+	3.  Serverside technologies (Python, Django)
+-------------------------
+Web Programming
+
+1.  Markup Languages -->  HTML, DHTML(CSS), XML, XAML, XHTML, ....
+2.  Script Languages -->  JavaScript, jQuery, TypeScript, ES6/ES7/....
+3.  Serverside Tech  -->  As per the Prog Lang(Servlets, JSP, ASP.Net, ASP.Net MVC, Php, Django,...)
+
+What is a HTML?
+It is a Markup Language which meant for creating and desiging the web pages.
+It consist collection commands called as tags. 
+
+<tag  [attributes]...>
+	Action
+</tag>
+
+We don't need any software to work with HTML, CSS and JavaScript. Just need a browser to execute a web page. To write code of the html,css and javascript, just any textual editor. 
+We are also having collection of editor tools like VSCode, EditPlus, SublimeText. 
+
+Note :-  While Creating Serverside Web Applications, "Eclipse" can used to create webpages(HTML).
+
+all html pages having  .html extension. 
+
+Steps to create Web App
+1. Web Application can be create with the help of "Dynamic Web Project" option from Eclipse. 
+2. Create html web pages in "WebApp"  of the web application
+				Src-Main-WebApp
+
+-----
+Web Server :-  It is a Software which allows to send request from the client and provides response from the server. 
+	1. Apache Tomcat
+	2. GlassFish
+	3. WebLogic
+	4. IIS(Internet Information Services)
+
+Download and configure Apache tomcat to the Eclipse.
+here,  for the server A name and Port No will exist
+		http://localhost:8080/
+
+		here portno can change if required.
+
+http://localhost:9090/SampleWebApp/Page1.html
+-----------------------------------------
+What is a Servlet?
+	Servlet is a Server Side Web Technology used to crated ServerSide Web Applications.
+
+
+Web Pages are two types
+
+Static 
+	This type of page will have fixed content.
+Dynamic
+	This type of pages will allows to change content as per the request. 
+
+
+Before Servlets, how serverside web apps are created, by using "CGI Script"
+	CGI = Common Gateway Interface
+But it has some limitations
+
+1.   Performance of the application. i.e. it executes it's request slowly when more no of request are 	exist.
+
+What is a Protocal?
+ Protocals are the set of rules to perform different task on web. 
+	http:-  hyper text transfer protocal is meant for transmitting data from server to client and 	vice versa. 
+	https :-  http Security	  :- http with secure
+	smtp  :-  simple mailer transfer protocal
+	ftp   :- file transfer protocal
+
+As per the Servlets
+
+html pages are used to design the page
+servlet pages are used to add functionality of the html pages. 
+--------------------------
+How to send data from html page to servlet page:- 
+
+1.  Create html page and design it as per the requirement
+2.  html page should consist of <form> tag along with "submit" button as follows
+
+<form  method="POST/GET"  action="ServletName">
+	design page as per the requirement
+
+	<input type="submit" value="text to visiable" />
+</form>
+
+3.  Create a Servlet, then define action of the servlet
+4.  To get html page data into servlet, following method can use
+	request.getParameter("toolname")
+5.  Execute html page, then check result. 
+
+----------------
+To move from one page to another page
+	response.sendRedirect("Page Name")
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
