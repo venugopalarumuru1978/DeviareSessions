@@ -1,0 +1,74 @@
+Today's Agenda
+--------------
+Servlet with JDBC
+Servlet with State Management
+	URL Rewriting
+	Session
+	Cookies
+	Hidden Fields
+---------------
+Steps to connect db with Servlet:-
+
+Note :- Before Create web app, create related table in database. 
+
+1.  Create Servlet App(Dynamic Web Application)
+2.  Add Servlet-api.jar file
+3.  Copy the mysqlconnector.jar file and paste it in "Lib" folder which is in "WEB-INF" folder.
+4.  Create a Entity class for the database
+		i.e create a class with tablename and columns as variables then add getter and setters
+5.  Create another class for db connection. 
+6.  Create  a html for file to add emp details(UI Design).
+7.  Create a class to perform all CURD Operations for db.
+		here create separate methods for add, modify, delete and retrive operations. 
+
+8.  Now Create a Servlet with doPost() method, then attach that servlet to the html page.
+9.  Within that doPost() method, write the functionalify to storing data into db. 
+10. Execute app with html page(addemp.html).
+----------------------------------
+What is a State Management?
+
+It is the process of Managing the state of the user within the application is called state management. 
+
+Every web page is a stateless page, So that once page is redirected to next page, the previous page will be expired from memory. this is called as stateless. 
+
+before expiring/redirect page, the data need to use in other pages has to be stored in areas. As per that State Management provides different techniques. 
+
+1. URL Rewriting
+2. Session
+3. Cookies
+4. Hidden Fields
+----
+1. URL Rewriting :-
+The process of sending data to another page at the time of redirecting the page. 
+steps :- 
+A. create a variable along with value, then attach those variables to the redirect() method
+		response.sendRedirect("Pagename?variable=value")
+B. In target Page, we can access variable, so that value can be retrived.
+		request.getParameter("variable")
+------------------------------
+2. Session :-
+
+Whenever we send a request to the server, server will allocate a block of memory for that client within the server, that memory is called as "Session Memory". 
+
+This memory  having an unique id, with id only, request are identified uniquly by the server to send responses. 
+
+This memory exist in server until we close that application in client machine. 
+
+HttpSession :-  this class allows to store session info, and provides following methods to work on it
+
+		HttpSession <object>  =  request.getSession();
+
+setAttribute("key", value) - to store values
+getAttribute("key")  - to retrive values
+removeAttribute("key") - to delete value
+getID :-  to retrive session id
+clear() :-  to delete all values from session
+---------------------------------
+Hidden Field :-  it is one of the tag where it is not visiable on form but allows hold value. 
+	
+	<input type="hidden" name="name..."  value="val..." />
+----------------------------------------
+Cookies
+Filters
+RequestDispatcher
+
