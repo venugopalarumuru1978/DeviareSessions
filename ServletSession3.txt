@@ -1,0 +1,77 @@
+Today's Agenda
+--------------
+1. RequestDispatcher
+2. Cookies
+3. Continuing EmpApp
+--------------
+RequestDispatcher :- 
+The RequestDispatcher interface provides the facility of dispatching the request to another resource it may be html, servlet or jsp.
+
+This interface can also be used to include the content of another resource also. 
+It is one of the way of servlet collaboration.
+
+RequestDispatcher having following two methods:- 
+
+public void forward(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException:Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
+
+public void include(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException:Includes the content of a resource (servlet, JSP page, or HTML file) in the response.
+--------------------------------------
+Cookies :- 
+
+Cookies are small amount memory resided in the browser memory of the client system where it allows to store textual info.
+
+Cookies are two types
+
+1.  In-Memory Cookie
+		These cookies are created in browser memory and avaiable until the site is open.
+		once webpage or site is closed, all the cookies are deleted automatically. 
+2.  Persistant Cookie
+		These cookies are created in client system memory and avaiable until particular period 		of time. so that even browser is closed, next time cookie is available to access 		information. it will expire automatically once that time period is done.
+
+How to create a cookie?
+
+Cookie :-  it is a class which allows to create an object and stores value. 
+	Cookie  <object>= new Cookie(key, value)
+
+response.addCookie(cookieObj) :-  this method adds coookie object info to the browser or client machine.
+
+ck.setMaxAge(time in milliseconds) :-
+this method will tell that cookie exist in machine for particular period of time(making persistant cookie).
+
+How to Retrive Data From Cookies:- 
+
+Once cookies are created, those all cookies are stores in memory in the form of array. 
+to get those cookies,  "request.getCookies()" has to be used.
+
+getName() :- to show cookie name
+getValue() :- to show cookie value
+------------------------------------
+EmpApp
+
+Two Users
+
+Admin User (username : Admin && password :  admin@123)
+	When Admin Logins
+		Adding New Emp
+		View All Emps
+		Search Emp
+Emp User (username : email && password : specified)
+	When Emp Logins
+		View that particular Emp Details
+		Change Password
+---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

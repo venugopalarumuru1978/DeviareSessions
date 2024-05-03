@@ -9,6 +9,7 @@ public class EmpOperations {
 
 	private Connection conObj;
 	private PreparedStatement ps;
+	
 	public EmpOperations()
 	{
 		conObj = DbConnection.getConnection();
@@ -81,5 +82,55 @@ public class EmpOperations {
 			// TODO: handle exception
 		}
 		return emp;
+	}
+	
+	public Employee UserCheck(String email, String pwd)
+	{
+		Employee  emp = null;
+		try {
+			ps = conObj.prepareStatement("select * from employee where email=? and pswd=?");
+			ps.setString(1, email);
+			ps.setString(2, pwd);
+			ResultSet  rs = ps.executeQuery();
+			if(rs.next())
+			{
+				emp = new Employee();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEmpname(rs.getString("empname"));
+				emp.setSalary(rs.getInt("salary"));
+				emp.setJob(rs.getString("job"));
+				emp.setEmail(rs.getString("email"));
+				emp.setPswd(rs.getString("pswd"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return emp;
+	}
+	
+	public int ChangePwd(String npwd, int eno)
+	{
+		int res = -1;
+		try {
+			ps = conObj.prepareStatement("Update Employee set pswd=? where empno=?");
+			ps.setString(1, npwd);
+			ps.setInt(2, eno);
+			res = ps.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return res;
+	}
+	
+	public void DeleteEmp(int eno)
+	{
+		try {
+			ps = conObj.prepareStatement("Delete from Employee where empno=?");
+			ps.setInt(1, eno);
+			int res = ps.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 }
