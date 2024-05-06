@@ -51,6 +51,5 @@ public class Employee {
 	public void setPswd(String pswd) {
 		this.pswd = pswd;
 	}
-	
-	
+
 }
