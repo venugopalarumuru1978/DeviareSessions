@@ -16,9 +16,14 @@ public class EmpAdd {
 		cfg.configure("hibernate.cfg.xml");
 		
 		SessionFactory sf = cfg.buildSessionFactory();
-		
+/*		
 		Session session = sf.openSession();
 		Transaction t = session.beginTransaction();
+		
+		Address  adrs = new Address(); 
+		adrs.setAdrsid(12);
+		adrs.setAdrsinfo("D.No. 12-13-B, Koti");
+		adrs.setLocation("Hyderbad");
 		
 		Employee emp = new Employee();
 		emp.setEmpno(102);
@@ -26,16 +31,14 @@ public class EmpAdd {
 		emp.setJob("Developer");
 		emp.setSalary(15000.00f);
 		
-		Address  adrs = new Address(); 
-		adrs.setAdrsid(12);
-		adrs.setAdrsinfo("D.No. 12-13-B, Koti");
-		adrs.setLocation("Hyderbad");
-		
 		emp.setAdrs(adrs);
+		adrs.setEmp(emp);
 		
 		session.persist(emp);
-		t.commit();
 		
+		//session.persist(adrs);
+		t.commit();
+	*/	
 		System.out.println("Emp Data is Added...");
 	}
 }

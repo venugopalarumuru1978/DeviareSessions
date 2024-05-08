@@ -6,15 +6,14 @@
  
 <hibernate-mapping>  
   <class name="com.entities.Employee" table="EmpInfo_xml">  
-    <id name="empno">  <!--  Specifies Primary Key -->
-     	<generator class="assigned"/>
-    </id>   
-      
+    <id name="empno" />  <!--  Specifies Primary Key -->
+ 
+
     <property name="ename" column="empname"/>  
     <property name="job"/>
     <property name="salary"/>   
 
-    <one-to-one name="adrs" cascade="all" />
-	  
+    <one-to-one name="adrs" cascade="all"/>
+    	  
   </class>
 </hibernate-mapping>  

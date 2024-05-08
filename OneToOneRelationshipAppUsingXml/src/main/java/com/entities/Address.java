@@ -8,6 +8,14 @@ public class Address {
 	private String adrsinfo;
 	private String location;
 	
+	private Employee emp;
+	
+	public Employee getEmp() {
+		return emp;
+	}
+	public void setEmp(Employee emp) {
+		this.emp = emp;
+	}
 	public int getAdrsid() {
 		return adrsid;
 	}

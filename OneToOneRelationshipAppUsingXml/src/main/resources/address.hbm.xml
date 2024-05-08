@@ -7,11 +7,14 @@
 <hibernate-mapping>  
   <class name="com.entities.Address" table="AdrsInfo_xml">  
     <id name="adrsid">  <!--  Specifies Primary Key -->
-     	<generator class="assigned"/>  
+     	 <generator class="foreign">  
+          <param name="property">emp</param>  
+          </generator>     	
     </id>     
     <property name="adrsinfo" />  
     <property name="location"/>
     
-           
+   <one-to-one name="emp" cascade="all"/>
+   
   </class>
 </hibernate-mapping>  
