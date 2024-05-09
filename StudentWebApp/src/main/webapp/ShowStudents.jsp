@@ -17,7 +17,10 @@
 <body>
 <!-- Presenting db data using JSTL tag -->
 <%
-	StudentService ss = new StudentService();
+
+	if(session.getAttribute("admn")!=null)
+	{
+		StudentService ss = new StudentService();
 	List<Student>  stdlist = ss.ShowAll();
 	pageContext.setAttribute("sinfo", stdlist);
 %>
@@ -33,9 +36,15 @@
 <th>Fees</th>
 <th>Email</th>
 <th>Password</th>
+<th>Operations</th>
 </tr>
 
 <c:forEach var="std"  items="${sinfo }">
+
+<c:url var="deletestudent" value="DeleteStd.jsp">
+	<c:param name="rno" value="${std.rollno }"/>
+</c:url>
+
 <tr>
 	<td>
 		<c:out value="${std.rollno }" />
@@ -55,10 +64,18 @@
 	<td>
 		<c:out value="${std.pswd }" />
 	</td>
+	<td>
+		<a href="${deletestudent }">Delete</a>
+	</td>
 
 </tr>
 </c:forEach>
 
 </table>
+<%
+	}
+	else
+		response.sendRedirect("Login.jsp");
+%>
 </body>
 </html>

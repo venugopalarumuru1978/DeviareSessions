@@ -8,6 +8,10 @@
 </head>
 <body>
 <jsp:include page="Links.jsp" />
+<%
+if(session.getAttribute("admn")!=null)
+{
+%>
 <h1 style="text-align: center;">Student Registration</h1>
 	<hr />
 <form method="post" action="AddStd">
@@ -25,5 +29,10 @@
 		<input type="submit"  value="Register Here" />
 	</p>
 </form>
+<%
+}
+else
+	response.sendRedirect("Login.jsp");
+%>
 </body>
 </html>

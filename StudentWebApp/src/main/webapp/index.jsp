@@ -3,6 +3,6 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<jsp:forward page="ShowStudents.jsp"/>
+<jsp:forward page="Login.jsp"/>
 </body>
 </html>

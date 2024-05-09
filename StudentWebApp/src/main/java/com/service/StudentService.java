@@ -42,5 +42,40 @@ public class StudentService {
 		Student std = session.get(Student.class, rno);
 		return std;
 	}
+
+	public Student UserCheck(String uname, String pwd)
+	{
+		Student std = null;
+		Session session = sfact.openSession();
+		TypedQuery  qry = session.createQuery("from Student where email=:uname and pswd=:pwd");
+		qry.setParameter("uname", uname);
+		qry.setParameter("pwd", pwd);
+		List<Student>  stdlist = qry.getResultList();
+		
+		if(stdlist.isEmpty())
+			std = null;
+		else 
+			std = stdlist.get(0);
+		return std;
+	}
 	
+	public void DeleteStudent(int rno)
+	{
+		Session session = sfact.openSession();
+		Transaction t = session.beginTransaction();
+		Student std = this.SearchStudent(rno);
+		session.delete(std);
+		t.commit();
+	}
+	
+	public void ChangePassword(int rno, String pwd)
+	{
+		Session session = sfact.openSession();
+		Transaction t = session.beginTransaction();
+		TypedQuery  qry = session.createQuery("Update Student set pswd=:pwd where rollno=:rno");
+		qry.setParameter("pwd", pwd);
+		qry.setParameter("rno", rno);
+		qry.executeUpdate();
+		t.commit();
+	}
 }

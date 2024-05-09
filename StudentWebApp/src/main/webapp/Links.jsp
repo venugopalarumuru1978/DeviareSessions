@@ -12,6 +12,8 @@
 <a href="AddStudent.jsp">New Student</a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="ShowStudents.jsp">All Students</a>
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="AdminLogout.jsp">Logout</a>
 </p>
 <hr />
 </body>
