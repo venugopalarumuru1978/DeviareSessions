@@ -1,0 +1,74 @@
+Today's Agenda
+--------------
+1. Project Explanations
+2. Desiging Pages with BootStrap
+--------------
+For Every Project first we have to prepare db tables(entities)
+
+Classes
+--------
+ClassID		ClassName
+--------------------------
+1		Class-I
+2		Class-II
+3		Class-III
+4		Class-X
+5		Class-IX
+---------------------------
+Subjects
+---------
+SubjectID	SubjectName
+---------------------------
+11		Maths
+12		Science
+13		Social
+14		English
+15		Env. Science
+---------------------------
+
+Teachers
+--------
+TeacherID	TeacherName		Email		Phone		Location
+---------------------------------------------------------------------------------
+101		ABC
+102		BCA
+103		CBA
+---------------------------------------------------------------------------------
+
+Students
+--------
+StudentID	StudentName		Gender		Address	     Location    ClassID
+----------------------------------------------------------------------------------------
+1101		Murali								   4
+1102		Abhishek							   4
+----------------------------------------------------------------------------------------
+
+
+Subject_Class_Mapping
+----------------------
+
+SubjectID	ClassID
+-----------------------
+11		4
+12		4
+11		5
+12		5
+-----------------------		
+
+Subject_Class_Teacher_Mapping
+-----------------------------
+SubjectID	ClassID		TeacherID
+------------------------------------------
+11		4		101
+12		4		102
+11		5		101
+12		5		103
+-------------------------------------------
+
+
+
+
+
+
+
+

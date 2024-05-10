@@ -1,0 +1,93 @@
+The website needs to have the following features:
+
+● A search form in the homepage to allow entry of travel details, like the date of travel, source, destination, and the number of persons.
+● Based on the travel details entered, it will show the available flights with their ticket prices.
+● Once a person selects a flight to book, they will be taken to a register page where they must fill in their personal details. In the next page, they are shown the flight details of the flight that they are booking, and the payment is done via a dummy payment gateway. On completion of the payment, they are shown a confirmation page with the details of the booking.   
+ 
+
+For the above features to work, there will be an admin backend with the following features:
+
+● An admin login page where the admin can change the password after login, if he wishes
+● A master list of places for source and destination
+● A master list of airlines
+● A list of flights where each flight has a source, destination, airline, and ticket price
+
+CREATE TABLE airports (
+  a_code VARCHAR(3) PRIMARY KEY,
+  a_name VARCHAR(50) NOT NULL,
+  city VARCHAR(50) NOT NULL,
+  country VARCHAR(50) NOT NULL
+);
+
+select * from airports;
+  
+CREATE TABLE airlines (
+  code VARCHAR(3) PRIMARY KEY,
+  name VARCHAR(50) NOT NULL);
+  
+select * from airlines;
+
+CREATE TABLE flights (
+F_id varchar(10) PRIMARY KEY,
+airline_code VARCHAR(3) NOT NULL,
+source_code VARCHAR(3) NOT NULL,
+destination_code VARCHAR(3) NOT NULL,
+price float NOT NULL,
+seats int not null, 
+FOREIGN KEY (airline_code) REFERENCES airlines(code),
+FOREIGN KEY (source_code) REFERENCES airports(a_code),
+FOREIGN KEY (destination_code) REFERENCES airports(a_code));
+
+Passengers :- 
+------------
+Create table PassengerReg(
+P_id int Auto_increment primary key, 
+Pname varchar(40) not null, 
+gender  varchar(6), 
+age int, 
+address  varchar(50),
+location varchar(10), 
+state varchar(20), 
+country varchar(20), 
+phone varchar(10), 
+email varchar(50), 
+passportno  varchar(20));
+
+PassengerTravelDetails:-
+------------------------
+Create table PassengerTravelDetails(
+sno int auto_increment  primary key, 
+P_id int not null, 
+traveldate  date, 
+traveltime time, 
+airline_code VARCHAR(3) NOT NULL,
+source_code VARCHAR(3) NOT NULL,
+destination_code VARCHAR(3) NOT NULL,
+F_id varchar(10) not null, 
+FOREIGN KEY (airline_code) REFERENCES airlines(code),
+FOREIGN KEY (source_code) REFERENCES airports(a_code),
+FOREIGN KEY (destination_code) REFERENCES airports(a_code),
+FOREIGN KEY (F_id) REFERENCES flights(f_id), 
+FOREIGN KEY (P_id) REFERENCES Passengers(P_id));
+
+
+Payments
+--------
+Create table Payments(
+payid int auto_increment primary key, 
+p_id  int not null, 
+Amount  float not null, 
+TransactionType  varchar(20), //Debit/Credit/Netbanking/UPI
+TransDate datetime,
+FOREIGN KEY (P_id) REFERENCES Passengers(P_id));
+
+BookingsPerDay:-
+---------------
+Create table BookingsPerDay(
+id int auto_increment primary key, 
+airline_code  VARCHAR(3) not null, 
+bdate   date, 
+noofbookings   int, 
+FOREIGN KEY (airline_code) REFERENCES airlines(code));
+
+

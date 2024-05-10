@@ -12,9 +12,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Information</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+
+<body class="text-bg-primary">
+<div class="container-fluid">
 <!-- Presenting db data using JSTL tag -->
 <%
 
@@ -28,7 +33,7 @@
 <jsp:include page="Links.jsp" />
 <h1 style="text-align: center;">Students Information</h1>
 <hr />
-<table width="100%" border="1">
+<table class="table table-dark table-hover">
 <tr>
 <th>Roll Number</th>
 <th>Student Name</th>
@@ -77,5 +82,6 @@
 	else
 		response.sendRedirect("Login.jsp");
 %>
+</div>
 </body>
 </html>
